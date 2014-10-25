@@ -1,0 +1,23 @@
+$bgcolor:#EEE;
+$textcolor:#222;
+
+body, html { margin:0; padding:0; height:100%; }
+
+body {
+  background-color : $bgcolor;
+  color:$textcolor;
+  font-size:22px;
+  font-weight:bold;
+  display:flex;
+  flex-direction:column;
+}
+
+.flexy {
+  flex:1;
+  background-color:red;
+  border-bottom:3px solid white;
+
+  &.flexy:nth-child(1) { background-color:#D22; color:#2DD; }
+  &.flexy:nth-child(2) { flex:2; background-color:#2D2; color:#D2D; }
+  &.flexy:nth-child(3) { background-color:#22D; color:#DD2; }    
+}

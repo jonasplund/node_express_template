@@ -1,0 +1,31 @@
+{
+  "name": "_min_boilerplate_node",
+  "version": "1.0.0",
+  "description": "boilerplate,node,express,jade,scss",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape lib/*/test/*-test.js | tap-spec",
+    "postinstall": "node bin/preinstall.js",
+    "start": "nodemon .",
+    "production": "NODE_ENV=production nodemon ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "connect-livereload": "^0.5.0",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-debug": "^1.0.1",
+    "gulp-jshint": "^1.8.5",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-uglify": "^1.0.1",
+    "jshint-stylish": "^1.0.0",
+    "nodemon": "^1.2.1",
+    "npm": "*",
+    "tap-spec": "^1.0.1",
+    "tape": "^3.0.1",
+    "tiny-lr": "^0.1.4"
+  }
+}

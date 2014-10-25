@@ -1,0 +1,6 @@
+extends ./layout
+block body
+    .text-center
+        h1 Server error.
+    if config.env === 'development'
+        pre= error.stack
