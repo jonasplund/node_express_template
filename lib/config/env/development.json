@@ -4,5 +4,14 @@
     "graylog": {
         "host": "localhost",
         "stdout": true
+    },
+    "dbConnection": {
+        "modulename": "mongo",
+        "host": "localhost",
+        "user": "root",
+        "password": "dbpassword",
+        "charset": "utf8",
+        "database": "jplay",
+        "multipleStatements": true
     }
 }

@@ -6,23 +6,24 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
-    debug = require('gulp-debug'),
-    webapp = require('./index.js');
+    debug = require('gulp-debug');
 
 var paths = {
   JS_SRC: 'public/src/js/*.js',
   HTML_SRC: 'public/src/*.html',
   SCSS_SRC: 'public/src/sass/*.scss',
-  IMG_SRC: 'public/src/img/*.*'
+  IMG_SRC: 'public/src/img/*.*',
 
   JS_DEST: 'public/dest/js/',
   HTML_DEST: 'public/dest/',
   CSS_DEST: 'public/dest/css/',
-  IMG_SRC: 'public/dest/img/'
+  IMG_DEST: 'public/dest/img/'
 }
 
 gulp.task('express', function() {
-  webapp();
+  console.log('req index');
+  var app = require('./index.js');
+  console.log('app', app);
 });
 
 gulp.task('styles', function() {
@@ -84,10 +85,14 @@ function notifyLiveReload(event) {
   });
 }
 
-gulp.task('default', ['img', 'styles', 'jshint', 'js', 'bower', 'express', 'watch', 'livereload'], function () {
+gulp.task('default', ['img', 'styles', 'jshint', 'js', 'bower', 'watch', 'livereload', 'express'], function () {
     console.log('Everything rebuilt. Server up and running!');
 });
 
-gulp.task('start', ['watch', 'livereload', 'express'], function () {
+gulp.task('development', ['watch', 'livereload', 'express'], function () {
     console.log('Server up and running!');
+});
+
+gulp.task('production', ['express'], function () {
+    console.log('Production server up and running!');
 });
