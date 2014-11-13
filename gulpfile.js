@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
-    debug = require('gulp-debug');
+    debug = require('gulp-debug'),
+    bower = require('gulp-bower');
 
 var paths = {
   JS_SRC: 'public/src/js/*.js',
@@ -21,9 +22,7 @@ var paths = {
 }
 
 gulp.task('express', function() {
-  console.log('req index');
   var app = require('./index.js');
-  console.log('app', app);
 });
 
 gulp.task('styles', function() {
@@ -54,10 +53,9 @@ gulp.task('js', function () {
     pipe(gulp.dest(paths.JS_DEST));
 });
 
-gulp.task('bower', function () {
-  gulp.src('public/src/bower_components/**/*.min.js').
-    pipe(gulp.dest('public/dest/bower_components'));
-  return gulp.src('public/src/bower_components/**/*.min.map').
+gulp.task('bower', function() {
+  return bower().
+    pipe(gulp.dest('public/src/bower_components')).
     pipe(gulp.dest('public/dest/bower_components'));
 });
 

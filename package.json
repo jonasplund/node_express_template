@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "tape lib/*/test/*-test.js | tap-spec",
-    "postinstall": "node bin/preinstall.js",
+    "postinstall": "node bin/preinstall.js && if not exist \".\\node_modules\\_\" mklink /D .\\node_modules\\_ ..\\lib",
     "start": "nodemon .",
     "production": "NODE_ENV=production nodemon ."
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
     "connect-livereload": "^0.5.0",
     "gulp": "^3.8.8",
@@ -26,6 +27,7 @@
     "npm": "*",
     "tap-spec": "^1.0.1",
     "tape": "^3.0.1",
-    "tiny-lr": "^0.1.4"
+    "tiny-lr": "^0.1.4",
+    "gulp-bower": "0.0.7"
   }
 }

@@ -7,9 +7,10 @@ var noop = function () { };
 
 npm.load(function () {
     fs.readdirSync(libDir).forEach(function (mod) {
-        console.log('Checking', mod);
         npm.config.set('save', false); // https://github.com/npm/npm/issues/6391
         npm.prefix = path.join(libDir, mod);
-        npm.commands.install(noop);
+        if (fs.existsSync(path.join(libDir, mod, 'package.json'))) {
+            npm.commands.install(noop);
+        }
     });
 });
